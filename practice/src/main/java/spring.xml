@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- 	<bean id="lion" class="com.spring.practice.Lion" autowire="byName"> -->
+<!-- 		<property name="type" value="carnivorous"></property> -->
+<!-- 		<property name="weight" value="200"></property> -->
+<!-- 		<property name="speed" value="60"></property> -->
+		<!-- <constructor-arg value="carnivorous"></constructor-arg> -->
+		<!-- <constructor-arg value="200"></constructor-arg> -->
+		<!-- <constructor-arg value="60"></constructor-arg> -->
+
+		<!-- <constructor-arg value="200"></constructor-arg> -->
+		<!-- <constructor-arg value="60"></constructor-arg> -->
+		
+
+<!-- 	</bean> -->
+<!-- 	<bean id="tiger" class="com.spring.practice.Tiger"> -->
+<!-- 		<property name="type" value="carnivorous"></property> -->
+		
+<!-- 		<property name="speed" value="700"></property> -->
+		<!-- <constructor-arg value="carnivorous"></constructor-arg> -->
+		<!-- <constructor-arg value="200"></constructor-arg> -->
+		<!-- <constructor-arg value="60"></constructor-arg> -->
+
+		<!-- <constructor-arg value="200"></constructor-arg> -->
+		<!-- <constructor-arg value="60"></constructor-arg> -->
+		
+
+<!-- 	</bean> -->
+	<!-- https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-autowired-exceptions -->
+	<!-- HERE TRYING TO AUTOWIRE WRAPPER BUT IT IS NOT WORKING -->
+<!-- 	<bean id="type" class="java.lang.String"  factory-method="valueOf"> -->
+<!-- 		<constructor-arg value="carnivorous"></constructor-arg> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="weight" class="java.lang.Integer"  factory-method="valueOf" > -->
+<!-- 		<constructor-arg value="120"></constructor-arg> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="speed" class="java.lang.Integer"  factory-method="valueOf"> -->
+<!-- 		<constructor-arg value="180"></constructor-arg> -->
+<!-- 	</bean> -->
+	
+	<context:component-scan base-package="com.spring.practice"></context:component-scan>
+</beans>

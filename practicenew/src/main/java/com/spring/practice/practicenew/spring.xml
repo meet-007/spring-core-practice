@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd" default-init-method="myInit" default-destroy-method="myDestroy">
+	<bean id="triangle"
+		class="com.spring.practice.practicenew.Triangle" abstract="true" >
+		<property name="points">
+			<list>
+				<ref bean="pointA1" />
+			</list>
+		</property>
+	</bean>
+<!-- 	. IN CONTRAST TO XML BEAN DEFINITIONS,  -->
+<!-- 	THERE IS NO NOTION OF BEAN DEFINITION INHERITANCE, AND  -->
+<!-- 	INHERITANCE HIERARCHIES AT THE CLASS LEVEL ARE IRRELEVANT FOR METADATA PURPOSES. -->
+	<bean id="triangle1"
+		class="com.spring.practice.practicenew.Triangle" parent="triangle">
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointC3" />
+			</list>
+		</property>
+	</bean>
+	<bean id="pointA1" class="com.spring.practice.practicenew.Point"
+		name="pointa">
+		<property name="x" value="3"></property>
+		<property name="y" value="5"></property>
+	</bean>
+	<bean id="pointB2" class="com.spring.practice.practicenew.Point">
+		<property name="x" value="5"></property>
+		<property name="y" value="7"></property>
+	</bean>
+	<bean id="pointC3" class="com.spring.practice.practicenew.Point">
+		<property name="x" value="3"></property>
+		<property name="y" value="8"></property>
+	</bean>
+	<!-- BEAN POST PROCESSOR FOR CONTAINER EXTENSION -->
+	<!-- <bean class="com.spring.practice.practicenew.DisplayBeanPostProcessor"></bean> -->
+	<!-- <bean class="com.spring.practice.practicenew.DisplayBeanPostProcessor2"></bean> -->
+	<!-- MY BEAN FACTORY -->
+	<!-- <bean class="com.spring.practice.practicenew.BeanFactoryPP"></bean> -->
+	<!-- USING PROPERTY PLACE HOLDER CONFIGURER (A BEAN FACTORY POST PROCESSOR 
+		PROVIDED BY SPIRNG) -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
+		<property name="location"
+			value="classpath:com/spring/practice/practicenew/resources/propertyconfig.properties"></property>
+	</bean>
+	<context:annotation-config />
+</beans>
